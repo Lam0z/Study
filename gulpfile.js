@@ -3,6 +3,7 @@
 const {src, dest, parallel, series, watch} = require("gulp")
 const gulp = require("gulp")
 const sass = require("gulp-sass")(require('sass'));
+const pug = require('gulp-pug');
 const notify = require("gulp-notify")
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
@@ -31,7 +32,7 @@ const path={
         fonts:  publicPath + 'fonts'
     },
     src:{
-        html:   srcPath + 'pages/*.html',
+        html:   srcPath + 'pages/*.pug',
         css:    srcPath + 'styles/*.scss',
         csslibs:srcPath + 'styles/libs/*.css',
         js:     srcPath + 'js/*.js',
@@ -41,7 +42,7 @@ const path={
         fonts:  srcPath + 'fonts/**/*.{eot,woff,woff2,ttf,svg}'
     },
     watch:{
-        html:   srcPath  + '**/*.html',
+        html:   srcPath  + '**/*.pug',
         css:    srcPath  + '**/*/*.scss',
         js:     srcPath  + '**/*/*.js',
         img:    srcPath  + 'img**/*.{jpg,jpeg,png,svg}',
@@ -54,9 +55,10 @@ const path={
 const html = () => {
     return src(path.src.html)
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-    .pipe(fileinclude({
-        prefix: '@'
-        }))
+    .pipe(pug())
+    // .pipe(fileinclude({
+    //     prefix: '@'
+    //     }))
       .pipe(dest(path.build.html))
       .pipe(browserSync.stream());
 }
@@ -123,7 +125,8 @@ const watchFiles = () => {
     browserSync.init({
         server: {
             baseDir: publicPath
-        }
+        },
+        open:false
     });
     watch(path.watch.css, styles)
     watch(path.watch.html, html)

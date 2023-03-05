@@ -1,0 +1,8 @@
+include data
+section.section#section
+  .container
+    each item in data
+      .slide 
+        p(class="slide__title") #{item.title}
+        p(class="slide__subtitle") #{item.subtitle}
+        p(class="slide__description") #{item.description}
