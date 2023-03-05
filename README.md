@@ -1,2 +1,2 @@
-# Lessons
-Lessons based gulp template
+# Gulp base
+# JQuery-lessons

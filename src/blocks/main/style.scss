@@ -1,0 +1,14 @@
+.main{
+    font-size: 20px;
+}
+// ANIMATION
+.main__title{
+    display: none;
+    font-size: 40px;
+    font-weight: 900;
+    display: grid;
+    transform: translate(350px);
+    transition: all 2s ease;
+    font-size: 25px;
+    
+}

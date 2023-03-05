@@ -1,0 +1,20 @@
+.header{
+    font-size: 250px;
+    display: grid;
+    transform: translate(360px);
+    transition: all ease 1s;
+    &__menu{
+        display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+    }
+    .header{
+        font-size: 20px;
+    }
+    .header_inner{
+        max-width: 240px;
+    }
+
+
+}
+// comment
