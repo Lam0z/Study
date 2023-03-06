@@ -9,6 +9,10 @@ body {
     line-height: 1.25;
     color: $black;
 }
+section{
+    padding: 50px 0;
+    border-bottom: 1px solid lightgreen;
+}
 
 .wrapper {
     max-width: 1920px;
@@ -22,7 +26,11 @@ body {
     padding-left: 40px;
     padding-right: 40px;
 }
-
+.section-title{
+    font-size: 50px;
+    font-weight: 500;
+    font-style: italic;
+}
 img {
     object-fit: cover;
     width: 100%;
